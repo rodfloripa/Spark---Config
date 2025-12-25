@@ -4,6 +4,28 @@
 
 Aqui estão algumas dicas para otimizar o Spark e economizar recursos:
 
+O "botão" que 90% dos usuários Spark usa errado: spark.sql.shuffle.partitions.
+
+(Salve ♻️ porque o default "200" está custando caro para o seu cluster).
+
+Quando o Spark faz um shuffle (um join, groupBy ou sort), ele precisa decidir em quantos "pedaços" (partições) ele vai quebrar o resultado.
+
+Esse número é controlado pelo spark.sql.shuffle.partitions.
+
+O valor padrão? 200.
+
+E aqui mora o problema.
+
+"200" é um chute. É um número genérico que não faz ideia se você está processando 10MB ou 10TB.
+
+    Cenário A: "Small Data" (Ex: 50MB)
+
+    Você faz um groupBy. O Spark, obediente, cria 200 partições.
+
+    Resultado: 195 partições vazias.
+
+Você gastou overhead de CPU e agendador para orquestrar 200 tarefas quando 5 seriam suficientes
+
 ### 1. Otimize o Shuffle Partitions
 O parâmetro `spark.sql.shuffle.partitions` controla o número de partições usadas durante as trocas de dados (joins e agregações). A recomendação é manter cada partição entre 100 MB e 200 MB.
 
