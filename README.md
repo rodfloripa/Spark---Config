@@ -78,11 +78,11 @@ Muito grande (> 10 GB)	8-16 GB
 
 Exemplo:
 spark.conf.set("spark.executor.memory", "4g")  
-# 4 GB de memória RAM
+4 GB de memória RAM
 spark.conf.set("spark.executor.memoryOverhead", "1g")  
-# 1 GB de memória adicional
+1 GB de memória adicional
 spark.conf.set("spark.memory.fraction", 0.6)  
-# 60% da memória RAM para armazenamento de dados
+60% da memória RAM para armazenamento de dados
 spark.conf.set("spark.memory.storageFraction", 0.5)  # 50% da memória RAM para armazenamento de dados em cache
 
 6. Use o Spark SQL
