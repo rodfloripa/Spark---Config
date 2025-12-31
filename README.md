@@ -181,24 +181,29 @@ Lembre-se de monitorar o desempenho do seu aplicativo Spark e ajustar as configu
 
 1. Estruturas de Dados: Tuplas vs. Listas
 As tuplas são imutáveis e possuem um tamanho fixo, o que torna sua alocação de memória muito mais rápida que a das listas, que precisam de espaço extra para redimensionamento dinâmico.
-
-    Exemplo:
+   
+Exemplo:
+   
     Python
+   
     Lento: Lista (mutável)
+   
     minha_lista = [1, 2, 3, 4, 5] 
     
     Rápido: Tupla (imutável)
+   
     minha_tupla = (1, 2, 3, 4, 5) 
 
 
     Resultado: Em testes, a criação de uma tupla pode ser cerca de 6 vezes mais rápida que a de uma lista2.
 
 
-2. Buscas com Sets e Dicionários
+3. Buscas com Sets e Dicionários
 Dicionários e conjuntos (sets) utilizam tabelas de hash, permitindo que o Python encontre um item diretamente sem percorrer toda a estrutura3333. Isso resulta em uma busca de tempo constante, denotada como $O(1)$4.
 
-    Exemplo:
-    Python
+Exemplo:
+
+    
     Lento em listas grandes: O Python olha item por item
     if 999999 in lista_de_um_milhao: 
         pass
@@ -211,7 +216,7 @@ Dicionários e conjuntos (sets) utilizam tabelas de hash, permitindo que o Pytho
     Performance: Enquanto a busca em uma lista grande pode levar milissegundos, em um set ou dicionário o tempo é virtualmente zero5.
 
 
-3. Variáveis Locais vs. Globais
+4. Variáveis Locais vs. Globais
 O Python utiliza a regra LEGB para buscar variáveis, começando sempre pelo escopo local6666. Como o escopo local é menor, a busca é muito mais ágil do que no escopo global.
 
     Exemplo:
@@ -233,7 +238,7 @@ O Python utiliza a regra LEGB para buscar variáveis, começando sempre pelo esc
     Nota: O uso de variáveis locais pode reduzir o tempo de execução em cerca de 35% em loops intensivos8.
 
 
-4. Encapsulamento em Classes
+5. Encapsulamento em Classes
 Manter variáveis restritas a funções e classes ajuda o interpretador a gerenciar menos nomes simultaneamente, melhorando a performance e a gestão de memória.
 
     Exemplo:
@@ -250,7 +255,7 @@ Manter variáveis restritas a funções e classes ajuda o interpretador a gerenc
     Benefício: Além da performance, evita conflitos de nomes e garante que os dados não sejam modificados acidentalmente por código externo.
 
 
-5. List Comprehensions e Geradores
+6. List Comprehensions e Geradores
 As compreensões de lista são otimizadas internamente, sendo mais rápidas que o uso do método .append() dentro de um loop for tradicional.
 
     Exemplo de List Comprehension:
@@ -268,7 +273,7 @@ As compreensões de lista são otimizadas internamente, sendo mais rápidas que 
     Comparação: Expressões geradoras são mais rápidas e consomem muito menos memória ao lidar com grandes volumes de dados12.
 
 
-6. Funções Built-in e NumPy
+7. Funções Built-in e NumPy
 Sempre prefira as funções nativas do Python (escritas em C) ou bibliotecas especializadas como o NumPy para processamento numérico.
 
     Exemplo (Ordenação):
