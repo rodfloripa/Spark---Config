@@ -287,4 +287,4 @@ total = np.sum(array_numpy) # Muito mais rápido que sum() do Python para arrays
 
 ---
 
-<p align="justify">Gostaria que eu formatasse mais alguma seção ou adicionasse exemplos práticos de como implementar o AQE no Spark 3.0?</p>
+
